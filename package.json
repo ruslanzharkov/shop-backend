@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/ruslanzharkov/shop-backend/issues"
   },
-  "homepage": "https://github.com/ruslanzharkov/shop-backend#readme"
+  "homepage": "https://github.com/ruslanzharkov/shop-backend#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.5.0",
+    "nodemon": "^1.18.11"
+  }
 }
