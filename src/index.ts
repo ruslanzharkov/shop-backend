@@ -1,17 +1,16 @@
-import express from 'express';
+import express, { Application } from 'express';
+const gamesRouter = require('./routes/games');
 
-const app: Express.Application = express();
+const app: Application = express();
 
 const port = process.env.PORT || 3000;
 
-app.get('/', (req: Express.Request, res: Express.Response) => {
-  res.send('Hello from ts shop backend');
-});
+app.use('/', gamesRouter);
 
-app.listen(port, (err: any) => {
-  if (err) {
-    return console.log(err);
-  }
-
-  return console.log(`server is listening on ${port}`);
-});
+try {
+  app.listen(port, () => {
+    return console.log(`server is listening on ${port}`);
+  });
+} catch (e) {
+  console.log(e);
+}
