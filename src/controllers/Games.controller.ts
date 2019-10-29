@@ -1,7 +1,6 @@
 import { Request, Response } from 'express-serve-static-core';
 
 class GamesController {
-
     getGames(req: Request, res: Response) {
         res.send({
             games: [
