@@ -6,4 +6,6 @@ mongoose.connect(`mongodb://${mongoConfig.host}:${mongoConfig.port}/${mongoConfi
     useUnifiedTopology: true,
 });
 
-export default mongoose;
+const db = mongoose.connection;
+
+export default db;
