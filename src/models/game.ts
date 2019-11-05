@@ -12,3 +12,5 @@ const gameSchema = new Schema({
     thumbnailPhoto: {type: String, required: true},
     updatedDate: {type: String, required: true},
 });
+
+export default mongoose.model('Game', gameSchema);

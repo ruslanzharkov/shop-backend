@@ -1,21 +1,17 @@
 import { Request, Response } from 'express-serve-static-core';
+import GameModel from '../models/game';
 
 class GamesController {
-    getGames(req: Request, res: Response) {
+    public getGames(req: Request, res: Response) {
         res.send({
-            games: [
-                {
-                    id: 1,
-                    name: 'Warcraft 2'
-                },
-                {
-                    id: 2,
-                    name: 'Warcraft 3'
-                }
-            ]
+            games: [],
         });
     }
 
+    public createGame(req: Request, res: Response) {
+        const data = req.body;
+        res.send(data);
+    }
 }
 
 export default GamesController;

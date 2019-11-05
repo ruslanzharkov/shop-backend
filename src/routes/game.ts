@@ -5,6 +5,8 @@ const router: Router = express.Router();
 
 const gamesController = new GamesController();
 
-router.get('/', gamesController.getGames.bind(this));
+router.get('/games', gamesController.getGames.bind(this));
 
-module.exports = router;
+router.post('/games', gamesController.createGame.bind(this));
+
+export default router;
