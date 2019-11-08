@@ -5,8 +5,16 @@ import GameModel from '../models/game';
 
 class GamesController {
     public getGames(req: Request, res: Response) {
-        res.send({
-            games: [],
+        GameModel.find((err: Error, documents: GameType[]) => {
+            if (err) {
+                res.send({
+                    message: 'Cannot get documents from db',
+                });
+            }
+            res.send({
+                items: documents,
+                totalCount: documents.length,
+            });
         });
     }
 
