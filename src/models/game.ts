@@ -1,9 +1,10 @@
-import {Document, Schema} from 'mongoose';
+import {GameType} from 'game.type.ts';
+import {Schema} from 'mongoose';
 import mongoose from '../connections/mongo';
 
 const gameSchema = new Schema({
     amount: {type: Number, required: true},
-    createdByCompany: {type: Number, required: true},
+    createdByCompany: {type: String, required: true},
     createdDate: {type: String, required: true},
     description: {type: String, required: true},
     name: {type: String, required: true, unique: true},
@@ -13,4 +14,4 @@ const gameSchema = new Schema({
     updatedDate: {type: String, required: true},
 });
 
-export default mongoose.model('Game', gameSchema);
+export default mongoose.model<GameType>('Game', gameSchema);
