@@ -1,6 +1,8 @@
 import express, { Application } from 'express';
-import mongoose from './connections/mongo';
+import swaggerUi from 'swagger-ui-express';
 
+import {swaggerDocument} from './swagger/swaggerDocument';
+import mongoose from './connections/mongo';
 import gamesRouter from './routes/game';
 
 const app: Application = express();
@@ -8,6 +10,7 @@ const app: Application = express();
 const port = process.env.PORT || 4000;
 
 app.use(express.json());
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // all configurations need to paste before routing
 app.use('/', gamesRouter);
